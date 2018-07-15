@@ -1,5 +1,32 @@
 # liri-node-app
 
+## Prerequisites:
+1. Download the code to your machine.
+
+2. Make a .env file with the following:
+
+    ```
+    # Spotify API keys
+
+    SPOTIFY_ID=xxxxxx
+    SPOTIFY_SECRET=xxxxxx
+
+    # Twitter API keys
+
+    TWITTER_CONSUMER_KEY=xxxxxx
+    TWITTER_CONSUMER_SECRET=xxxxxx
+
+    TWITTER_ACCESS_TOKEN_KEY=xxxxxx-xxxxxx
+    TWITTER_ACCESS_TOKEN_SECRET=xxxxxx
+
+    # OMDb API keys
+
+    OMDb_API_KEY=xxxxxx
+    ```
+
+3. Replace the `xxxxxx` with your keys.
+
+4. Install the necessary packages by running `npm install`
 
 ## How to run the application
 1. `node liri.js my-tweets '<username>'`
@@ -29,7 +56,7 @@
      ```
        * Title of the movie.
        * Year the movie came out.
-       * IMDB Rating of the movie.
+       * IMDb Rating of the movie.
        * Rotten Tomatoes Rating of the movie.
        * Country where the movie was produced.
        * Language of the movie.
@@ -38,3 +65,9 @@
      ```
 
    * If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.' 
+
+   4. `node liri.js do-what-it-says`
+   
+   * When you command LIRI to do-what-it-says, LIRI will take the text inside of random.txt and then use it to call  LIRI's commands.
+     
+     * The file contains a list of commands and parameters for LIRI to do.
