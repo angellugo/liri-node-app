@@ -1,8 +1,7 @@
 const debug = false;
 
-require ('dotenv').config (); // Read and set environment variables
-
 console.log ('\nLoading keys.js...');
+require ('dotenv').config (); // Read and set environment variables
 const keys = require ('./keys');
 
 run (process.argv[2], process.argv[3]);
