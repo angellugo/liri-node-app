@@ -2,7 +2,7 @@ const debug = false;
 
 require ('dotenv').config (); // Read and set environment variables
 
-console.log ('Loading keys.js...');
+console.log ('\nLoading keys.js...');
 const keys = require ('./keys');
 
 run (process.argv[2], process.argv[3]);
@@ -94,17 +94,19 @@ function getMovie (movie) {
 }
 
 function doWhatItsSays () {
-  var fs = require ('fs');
-  var readline = require ('readline');
+  console.log ('\nLoading file data...');
+  const fs = require ('fs');
 
-  var rd = readline.createInterface ({
-    input: fs.createReadStream ('./random.txt'),
-    output: process.stdout,
-    console: true,
-  });
-
-  rd.on ('line', function (line) {
-    var lineItems = line.split(",");
-    run(lineItems[0], lineItems[1]);
-  });
+  fs.readFile ('random.txt', 'utf8', function (error, data) {
+    if (error) {
+      return console.log (error);
+    }
+    const lines = data.split ('\r\n'); 
+    debug && console.log('lines', lines);
+    lines.forEach (line => {
+      const lineItems = line.split (','); 
+      debug && console.log (lineItems[0], lineItems[1]);
+      setTimeout(function(){ run (lineItems[0], lineItems[1]); }, 3000);
+    }); // lines.forEach(line => {
+  }); // end fs.readFile("random.txt", "utf8", function(error, data) {
 }
