@@ -3,6 +3,10 @@ const debug = false;
 console.log ('\nLoading keys.js...');
 require ('dotenv').config (); // Read and set environment variables
 const keys = require ('./keys');
+const Twitter = require ('twitter');
+const Spotify = require ('node-spotify-api');
+const request = require ('request');
+const fs = require ('fs');
 
 run (process.argv[2], process.argv[3]);
 
@@ -15,8 +19,6 @@ function run (option1, option2) {
 
 function getTweets (screenName) {
   console.log ('\nLoading tweets...');
-
-  const Twitter = require ('twitter');
   const twitter = new Twitter (keys.twitter);
   const params = {screen_name: screenName || 'nodejs', count: 20};
   twitter.get ('statuses/user_timeline', params, function (
@@ -39,10 +41,8 @@ function getSong (song) {
   debug && console.log ('songName', songName);
 
   console.log ('\nLoading Spotify data...');
-  const Spotify = require ('node-spotify-api');
   const spotify = new Spotify (keys.spotify);
   const params = {type: 'track', query: "'" + songName + "'", limit: 1};
-
   spotify.search (params, function (err, data) {
     if (err) {
       return console.log ('Error occurred: ' + err);
@@ -62,7 +62,6 @@ function getSong (song) {
 
 function getMovie (movie) {
   console.log ('\nLoading OMDb data...');
-  const request = require ('request');
   var movieTitle = movie || 'Mr Nobody';
   request (
     'http://www.omdbapi.com/?t=' + movieTitle + '&y=&plot=short&apikey=trilogy',
@@ -94,7 +93,6 @@ function getMovie (movie) {
 
 function doWhatItsSays () {
   console.log ('\nLoading file data...');
-  const fs = require ('fs');
 
   fs.readFile ('random.txt', 'utf8', function (error, data) {
     if (error) {
