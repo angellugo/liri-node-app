@@ -6,6 +6,12 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 
 ## Prerequisites:
+1. node.js
+2. Spotify API keys
+3. Twitter API keys
+4. OMDb API keys
+
+## Before you begin
 1. Download the code to your machine.
 
 2. Make a .env file with the following:
