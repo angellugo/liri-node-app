@@ -12,7 +12,7 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 4. OMDb API keys
 
 ## Before you begin
-1. Download the code to your machine.
+1. Download the code to your machine from [https://github.com/angellugo/liri-node-app.git](https://github.com/angellugo/liri-node-app.git)
 
 2. Make a .env file with the following:
 
