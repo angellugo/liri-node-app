@@ -1,6 +1,6 @@
 const debug = false;
 
-console.log ('\nLoading keys.js...');
+debug && console.log ('\nLoading keys.js...');
 require ('dotenv').config (); // Read and set environment variables
 const keys = require ('./keys');
 const Twitter = require ('twitter');
@@ -69,7 +69,7 @@ function getSong (song) {
 
     console.log ('Artist:', data.tracks.items[0].album.artists[0].name);
     console.log ('Song Name:', data.tracks.items[0].name);
-    console.log ('Link to song:', data.tracks.items[0].album.external_urls.spotify);
+    console.log ('Link to song:', data.tracks.items[0].external_urls.spotify);
     console.log ('Album Name:', data.tracks.items[0].album.name);
   });
 }

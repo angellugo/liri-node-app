@@ -1,4 +1,6 @@
-console.log('keys.js is loaded');
+const debug = false;
+
+debug && console.log('keys.js is loaded');
 
 exports.twitter = {
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
